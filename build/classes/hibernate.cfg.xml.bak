@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql:hospital</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">postgres</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <!-- Este contexto pode ser de três tipos managed, thread, jta 
+          managed -  definindo este nivel de contexto você ficará encarregado 
+          de associar e dessaciar uma sessao da sua Thread atraves de métodos estáticos,
+          ou seja, você se torna responsavel por gerenciar as sessões, incluindo a 
+          criação delas.           
+          
+          thread - é o mais utilizado, você fica apenas responsavel por configurar o 
+          escopo da sua sessão, utilizando a sessão fornecida pelo  session manager.
+          
+          jta - com este tipo de contexto de sessão cada instrução executada pelo JDBC será
+          automaticamente efetivada no banco, ou seja, você não precisa mais abrir ou 
+          fechar sessao, isto se torna trabalho de um manager of Java components, mas 
+          infelizmente isto só está disponivel em Application Server, e o tomcat é um
+          web server  -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <mapping class="model.Paciente" />       
+		<mapping class="model.Medico" />
+		<mapping class="model.Lazer" />
+		<mapping class="model.Escolaridade" />
+		<mapping class="model.Login" />
+    </session-factory>
+
+</hibernate-configuration>

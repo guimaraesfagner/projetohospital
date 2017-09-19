@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Cadastro de Médico</title>
+</head>
+<body>
+<h1>Cadastro de Médicos</h1>
+	<h3>Incluir Novo Médico</h3>
+	<form action="ManagerMedico" method="post">
+	<input type="hidden" name="metodo" value="incluir" />
+	<table border="1">
+		<tr>
+			<td>Nome</td>
+			<td><input type="text" name="nomeMedico" size="40" /></td>
+		</tr>
+		<tr>
+			<td>Telefone</td>
+			<td><input type="text" name="telefone" size="13" /></td>
+		</tr>
+		<tr>
+			
+		<td>Especialidade</td>
+			<td><select name="especialidade">
+				<option value="Clinico Geral">Clinico</option>
+				<option value="Dermatologista">Dermatologista</option>
+				<option value="Cirurgiao">Cirurgião</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="Cadastrar" />
+	<a href="cadastroMedico.html">Voltar</a>
+	</form>
+</body>
+</html>
